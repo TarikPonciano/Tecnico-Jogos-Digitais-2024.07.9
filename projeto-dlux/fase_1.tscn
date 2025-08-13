@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://da2l3jkg37xou"]
+[gd_scene load_steps=6 format=3 uid="uid://da2l3jkg37xou"]
 
 [ext_resource type="Texture2D" uid="uid://cy2wg5sh0bvuy" path="res://icon.svg" id="1_ru54l"]
+[ext_resource type="PackedScene" uid="uid://cqfj0cryurx81" path="res://jogador_v_1.tscn" id="2_5s2kv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urf38"]
+size = Vector2(24, 643.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru54l"]
-size = Vector2(24, 661)
+size = Vector2(24, 648.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5s2kv"]
 size = Vector2(1144, 27)
 
 [node name="Fase 1" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-41.0]
 
 [node name="Parede Direita" type="StaticBody2D" parent="."]
 position = Vector2(1129, 11)
@@ -19,8 +24,8 @@ scale = Vector2(0.195313, 5.0625)
 texture = ExtResource("1_ru54l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parede Direita"]
-position = Vector2(12, 318)
-shape = SubResource("RectangleShape2D_ru54l")
+position = Vector2(12, 326.75)
+shape = SubResource("RectangleShape2D_urf38")
 
 [node name="Parede Esquerda" type="StaticBody2D" parent="."]
 position = Vector2(1, 6)
@@ -45,3 +50,6 @@ texture = ExtResource("1_ru54l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao"]
 position = Vector2(11, 217.5)
 shape = SubResource("RectangleShape2D_5s2kv")
+
+[node name="Jogador V1" parent="." instance=ExtResource("2_5s2kv")]
+position = Vector2(228, 506)
