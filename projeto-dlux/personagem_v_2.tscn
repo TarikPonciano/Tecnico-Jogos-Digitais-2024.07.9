@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwef758il4d1g"]
+
+[ext_resource type="Texture2D" uid="uid://cy2wg5sh0bvuy" path="res://icon.svg" id="1_joros"]
+[ext_resource type="Script" path="res://personagem_v_2.gd" id="1_qgu5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j7fm"]
+size = Vector2(128, 128)
+
+[node name="Personagem V 2" type="CharacterBody2D"]
+script = ExtResource("1_qgu5m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_joros")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8j7fm")
