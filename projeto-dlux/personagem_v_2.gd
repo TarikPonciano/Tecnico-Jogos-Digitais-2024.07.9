@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pode
 
+@onready var animacao = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,7 +26,19 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if velocity.y < 0:
+		animacao.play("jump")
+	elif velocity.y > 0:
+		animacao.play("fall")
+	elif velocity.x != 0:
+		animacao.play("run")
+	else:
+		animacao.play("idle")
+	
+	
 
 	move_and_slide()
