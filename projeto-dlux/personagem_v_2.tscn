@@ -123,7 +123,7 @@ position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_cla5p")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.855039
+frame_progress = 0.406875
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_npyky")

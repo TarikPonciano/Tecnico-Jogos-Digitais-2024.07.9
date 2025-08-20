@@ -38,7 +38,14 @@ func _physics_process(delta: float) -> void:
 		animacao.play("run")
 	else:
 		animacao.play("idle")
+		
+	if velocity.x > 0 :
+		animacao.flip_h = false
+	elif velocity.x < 0:
+		animacao.flip_h = true
 	
 	
-
 	move_and_slide()
+
+
+	
