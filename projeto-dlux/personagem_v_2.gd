@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		pulo_duplo = true
 		
-	elif Input.is_action_just_pressed("ui_accept") and pulo_duplo:
+	elif Input.is_action_just_pressed("ui_accept") and pulo_duplo and not is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		pulo_duplo = false
 
@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+	
 	if velocity.y < 0:
 		animacao.play("jump")
 	elif velocity.y > 0:

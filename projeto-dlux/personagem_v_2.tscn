@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bwef758il4d1g"]
 
-[ext_resource type="Script" uid="uid://btjgjkdhdkow7" path="res://personagem_v_2.gd" id="1_qgu5m"]
+[ext_resource type="Script" path="res://personagem_v_2.gd" id="1_qgu5m"]
 [ext_resource type="Texture2D" uid="uid://bqm6na4blxs0o" path="res://Foxy-Spritesheet.png" id="2_6h3ei"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cla5p"]
@@ -121,9 +121,8 @@ script = ExtResource("1_qgu5m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_cla5p")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.406875
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_npyky")
