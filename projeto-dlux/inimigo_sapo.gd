@@ -11,17 +11,28 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	if perseguir:
+	var direction = 0
+	if perseguir == true:
 		if jogador.position.x > position.x:
 			velocity.x = SPEED
+			direction = 1
 		elif jogador.position.x < position.x:
 			velocity.x = -SPEED
+			direction = -1
 		else:
 			velocity.x = 0
 	else:
 		velocity.x = 0
-
-
+		
+	if velocity.x != 0:
+		$AnimatedSprite2D.play("jump")
+	else:
+		$AnimatedSprite2D.play("idle")
+		
+	if direction == 1:
+		$AnimatedSprite2D.flip_h = true
+	elif direction == -1:
+		$AnimatedSprite2D.flip_h = false
 		
 	move_and_slide()
 
