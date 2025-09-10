@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwef758il4d1g"]
+[gd_scene load_steps=19 format=3 uid="uid://bwef758il4d1g"]
 
 [ext_resource type="Script" uid="uid://btjgjkdhdkow7" path="res://personagem_v_2.gd" id="1_qgu5m"]
 [ext_resource type="Texture2D" uid="uid://bqm6na4blxs0o" path="res://Foxy-Spritesheet.png" id="2_6h3ei"]
@@ -117,6 +117,9 @@ height = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8glhj"]
 size = Vector2(12, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msxwa"]
+size = Vector2(17, 6.5)
+
 [node name="Personagem V 2" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_qgu5m")
@@ -136,3 +139,12 @@ shape = SubResource("CapsuleShape2D_npyky")
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_8glhj")
 debug_color = Color(0.941439, 0.168559, 0.444167, 0.42)
+
+[node name="Killzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 6.75)
+shape = SubResource("RectangleShape2D_msxwa")
+debug_color = Color(0.641103, 0.524339, 0, 0.42)
+
+[connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]

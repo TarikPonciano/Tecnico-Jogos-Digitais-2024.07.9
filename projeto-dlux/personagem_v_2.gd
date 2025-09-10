@@ -51,3 +51,12 @@ func _physics_process(delta: float) -> void:
 
 
 	
+
+
+func _on_killzone_area_entered(area: Area2D) -> void:
+	if area.name == "Hitbox":
+		var inimigo = area.get_parent()
+		if inimigo.is_in_group("Inimigos"):
+			inimigo.queue_free()
+			self.velocity.y = JUMP_VELOCITY
+		

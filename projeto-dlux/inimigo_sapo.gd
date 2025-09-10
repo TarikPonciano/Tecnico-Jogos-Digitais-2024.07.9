@@ -53,6 +53,5 @@ func _on_area_perseguir_body_exited(body: Node2D) -> void:
 func _on_killzone_area_entered(area: Area2D) -> void:
 	if area.name == "Hitbox":
 		jogador = area.get_parent()
-		
 		if jogador.name == "Personagem V 2":
 			jogador.queue_free()

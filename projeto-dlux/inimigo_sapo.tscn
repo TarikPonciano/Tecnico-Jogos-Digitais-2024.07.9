@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgndmktknndea"]
+[gd_scene load_steps=16 format=3 uid="uid://bgndmktknndea"]
 
 [ext_resource type="Script" uid="uid://ckf54726qg0eb" path="res://inimigo_sapo.gd" id="1_dp6a7"]
 [ext_resource type="Texture2D" uid="uid://ly2n0hv0mox5" path="res://frog-idle.png" id="2_ybe32"]
@@ -75,7 +75,10 @@ radius = 94.5119
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n02i6"]
 size = Vector2(30, 11.5)
 
-[node name="Inimigo Sapo" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq0jc"]
+size = Vector2(27.5, 8.5)
+
+[node name="Inimigo Sapo" type="CharacterBody2D" groups=["Inimigos"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_dp6a7")
 
@@ -83,7 +86,7 @@ script = ExtResource("1_dp6a7")
 sprite_frames = SubResource("SpriteFrames_7lqab")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.306966
+frame_progress = 0.0732348
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 5)
@@ -99,7 +102,14 @@ shape = SubResource("CircleShape2D_2xfu1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(-1, 4.25)
 shape = SubResource("RectangleShape2D_n02i6")
-debug_color = Color(0.987394, 0, 0.313493, 0.42)
+debug_color = Color(0.716145, 0.482033, 0.0236848, 0.42)
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.75, -5.75)
+shape = SubResource("RectangleShape2D_jq0jc")
+debug_color = Color(0.988201, 0, 0.304645, 0.42)
 
 [connection signal="body_entered" from="AreaPerseguir" to="." method="_on_area_perseguir_body_entered"]
 [connection signal="body_exited" from="AreaPerseguir" to="." method="_on_area_perseguir_body_exited"]

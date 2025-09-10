@@ -15,6 +15,10 @@ run/main_scene="uid://da2l3jkg37xou"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Inimigos=""
+
 [input]
 
 andar_direita={
