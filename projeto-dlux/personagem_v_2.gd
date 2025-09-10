@@ -9,6 +9,7 @@ var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pod
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -57,6 +58,8 @@ func _on_killzone_area_entered(area: Area2D) -> void:
 	if area.name == "Hitbox":
 		var inimigo = area.get_parent()
 		if inimigo.is_in_group("Inimigos"):
-			inimigo.queue_free()
+			
+			inimigo.morrer()
+			
 			self.velocity.y = JUMP_VELOCITY
 		
