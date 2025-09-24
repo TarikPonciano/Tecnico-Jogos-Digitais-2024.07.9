@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqdp5cx2x5iyy"]
+
+[ext_resource type="Texture2D" uid="uid://demujkj50omp8" path="res://chefe-e-chefe.png" id="1_714k2"]
+[ext_resource type="Script" uid="uid://1ejswwjtetu8" path="res://fim.gd" id="1_ay7l0"]
+
+[node name="Fim" type="Node2D"]
+script = ExtResource("1_ay7l0")
+
+[node name="Chefe-e-chefe" type="Sprite2D" parent="."]
+position = Vector2(575, 323)
+scale = Vector2(2.31325, 2.29181)
+texture = ExtResource("1_714k2")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 341.0
+offset_top = 399.0
+offset_right = 806.0
+offset_bottom = 473.0
+theme_override_font_sizes/font_size = 24
+text = "CLIQUE AQUI PARA COMEÇAR DE NOVO"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

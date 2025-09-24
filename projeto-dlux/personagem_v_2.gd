@@ -4,10 +4,14 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pode
+var dying = false
 
 @onready var animacao = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	
+	if dying:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -48,5 +52,16 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
+func death():
 	
+	dying = true
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
+	get_tree().reload_current_scene()
+	
+
+
+func _on_kill_zone_area_entered(area: Area2D) -> void:
+	if area.get_parent().is_in_group("Enemy") and area.name=="DeathZone":
+		area.get_parent().death()
+		self.velocity.y = JUMP_VELOCITY
