@@ -148,7 +148,7 @@ texture = ExtResource("1_qxik6")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qxik6")
 
-[node name="fase_2" type="Node2D"]
+[node name="Minha Fase" type="Node2D"]
 
 [node name="Personagem V 2" parent="." instance=ExtResource("2_xe686")]
 position = Vector2(60, 551)
