@@ -59,13 +59,19 @@ func _on_killzone_area_entered(area: Area2D) -> void:
 	if area.name == "Hitbox":
 		jogador = area.get_parent()
 		if jogador.name == "Personagem V 2":
-			jogador.queue_free()
+			
+			jogador.morrer()
 			
 func morrer():
-	# Tocar a animação de morte
-	animacao.play("death")
-	# Enquanto animação de morte acontece. Variável morrer = true
-	morrendo = true
-	await animacao.animation_finished
-	# Ao fim da animação de morte, deletar o inimigo
-	self.queue_free()
+	
+	if morrendo == false:
+		# Tocar a animação de morte
+		animacao.play("death")
+		$CollisionShape2D.queue_free()
+		$Killzone.queue_free()
+		$Hitbox.queue_free()
+		# Enquanto animação de morte acontece. Variável morrer = true
+		morrendo = true
+		await animacao.animation_finished
+		# Ao fim da animação de morte, deletar o inimigo
+		self.queue_free()

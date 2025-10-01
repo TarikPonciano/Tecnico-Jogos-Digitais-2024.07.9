@@ -4,10 +4,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pode
-
+var morrendo = false
 @onready var animacao = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	
+	if morrendo == true:
+		return
 	# Add the gravity.
 	
 	if not is_on_floor():
@@ -50,10 +53,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
-	
-
-
 func _on_killzone_area_entered(area: Area2D) -> void:
 	if area.name == "Hitbox":
 		var inimigo = area.get_parent()
@@ -62,4 +61,18 @@ func _on_killzone_area_entered(area: Area2D) -> void:
 			inimigo.morrer()
 			
 			self.velocity.y = JUMP_VELOCITY
+		
+func morrer():
+	
+	if morrendo == false:
+		morrendo = true
+		
+		$CollisionShape2D.queue_free()
+		$Hitbox.queue_free()
+		$Killzone.queue_free()
+		
+		animacao.play("death")
+		
+		get_tree().reload_current_scene()
+		
 		
