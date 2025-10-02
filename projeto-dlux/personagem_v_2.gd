@@ -6,12 +6,16 @@ const JUMP_VELOCITY = -400.0
 var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pode
 var morrendo = false
 @onready var animacao = $AnimatedSprite2D
+@export var fireball_scene: PackedScene
 
 func _physics_process(delta: float) -> void:
 	
 	if morrendo == true:
 		return
 	# Add the gravity.
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -75,4 +79,11 @@ func morrer():
 		
 		get_tree().reload_current_scene()
 		
-		
+
+func shoot():
+	
+	var novaFireball = fireball_scene.instantiate()
+	novaFireball.position = self.position
+	get_parent().add_child(novaFireball)
+	
+	

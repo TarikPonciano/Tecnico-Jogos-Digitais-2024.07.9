@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://da2l3jkg37xou"]
+[gd_scene load_steps=7 format=3 uid="uid://da2l3jkg37xou"]
 
 [ext_resource type="Texture2D" uid="uid://cy2wg5sh0bvuy" path="res://icon.svg" id="1_ru54l"]
 [ext_resource type="PackedScene" uid="uid://bwef758il4d1g" path="res://personagem_v_2.tscn" id="2_1uwo1"]
+[ext_resource type="PackedScene" uid="uid://cyp1n2itr0klf" path="res://fireball.tscn" id="3_isch8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urf38"]
 size = Vector2(24, 643.5)
@@ -53,3 +54,6 @@ shape = SubResource("RectangleShape2D_5s2kv")
 
 [node name="Personagem V 2" parent="." instance=ExtResource("2_1uwo1")]
 position = Vector2(170, 473)
+
+[node name="FIREBALL" parent="." instance=ExtResource("3_isch8")]
+position = Vector2(83, 564)
