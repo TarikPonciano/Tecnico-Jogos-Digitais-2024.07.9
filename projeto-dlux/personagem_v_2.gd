@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pode
 var morrendo = false
+var pode_atirar = true
 @onready var animacao = $AnimatedSprite2D
 @export var fireball_scene: PackedScene
 
@@ -79,11 +79,22 @@ func morrer():
 		
 		get_tree().reload_current_scene()
 		
-
+		
 func shoot():
 	
-	var novaFireball = fireball_scene.instantiate()
-	novaFireball.position = self.position
-	get_parent().add_child(novaFireball)
+	if pode_atirar == true:
+		var bolaDeFogo = fireball_scene.instantiate()
+		bolaDeFogo.position = self.position
+		
+		if animacao.flip_h == true:
+			bolaDeFogo.speed *= -1
+		
+		get_parent().add_child(bolaDeFogo)
+		pode_atirar = false
+		$"Cooldown Tiro".start()
 	
 	
+
+
+func _on_cooldown_tiro_timeout() -> void:
+	pode_atirar = true

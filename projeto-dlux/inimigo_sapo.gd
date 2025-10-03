@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 var perseguir = false
 var morrendo = false
 var jogador = null
+var hp = 3
 @onready var animacao = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
@@ -75,3 +76,8 @@ func morrer():
 		await animacao.animation_finished
 		# Ao fim da animação de morte, deletar o inimigo
 		self.queue_free()
+
+func tomar_dano(dano):
+	hp -= dano
+	if hp <= 0:
+		morrer()

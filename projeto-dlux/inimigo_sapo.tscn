@@ -101,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7slf1"]
-size = Vector2(23, 12)
+size = Vector2(23, 16.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xfu1"]
 radius = 94.5119
@@ -118,13 +118,12 @@ script = ExtResource("1_dp6a7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7lqab")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.710487
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 5)
+position = Vector2(-0.5, 2.75)
 shape = SubResource("RectangleShape2D_7slf1")
 
 [node name="AreaPerseguir" type="Area2D" parent="."]

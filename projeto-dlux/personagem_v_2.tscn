@@ -211,4 +211,9 @@ position = Vector2(0, 6.75)
 shape = SubResource("RectangleShape2D_msxwa")
 debug_color = Color(0.641103, 0.524339, 0, 0.42)
 
+[node name="Cooldown Tiro" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]
+[connection signal="timeout" from="Cooldown Tiro" to="." method="_on_cooldown_tiro_timeout"]
