@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctkn31di8x23d"]
+
+[ext_resource type="Script" path="res://cereja.gd" id="1_eus5x"]
+[ext_resource type="Texture2D" uid="uid://vsk0fnx3mg3q" path="res://Cereja-Spritesheet.png" id="1_vvus8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnuiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yorob"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7f23"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsrvg"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owa6b"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbqsm"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(84, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jfud"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8wu0"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87cea"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmlot"]
+atlas = ExtResource("1_vvus8")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v52ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yorob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7f23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsrvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owa6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbqsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jfud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8wu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87cea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmlot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cereja" type="Area2D"]
+script = ExtResource("1_eus5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gnuiv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v52ht")
+autoplay = "default"
+frame_progress = 0.246282
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

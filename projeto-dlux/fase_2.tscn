@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://doq0ktjd6klvk"]
+[gd_scene load_steps=11 format=4 uid="uid://doq0ktjd6klvk"]
 
 [ext_resource type="Texture2D" uid="uid://drt7ktgf3epoe" path="res://tileset-padrao.png" id="1_qxik6"]
 [ext_resource type="PackedScene" uid="uid://bwef758il4d1g" path="res://personagem_v_2.tscn" id="2_xe686"]
 [ext_resource type="PackedScene" uid="uid://bgndmktknndea" path="res://inimigo_sapo.tscn" id="3_7c5ia"]
+[ext_resource type="PackedScene" uid="uid://ctkn31di8x23d" path="res://cereja.tscn" id="4_4365c"]
+[ext_resource type="Texture2D" uid="uid://vsk0fnx3mg3q" path="res://Cereja-Spritesheet.png" id="5_hqqsu"]
+[ext_resource type="Script" path="res://contador_cerejas.gd" id="5_mgnet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxik6"]
 texture = ExtResource("1_qxik6")
@@ -148,10 +151,26 @@ texture = ExtResource("1_qxik6")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qxik6")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3efqq"]
+atlas = ExtResource("5_hqqsu")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1tdj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3efqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="fase_2" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [538.0]
 
 [node name="Personagem V 2" parent="." instance=ExtResource("2_xe686")]
+unique_name_in_owner = true
 position = Vector2(115, 484)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -160,3 +179,31 @@ tile_set = SubResource("TileSet_xe686")
 
 [node name="Inimigo Sapo" parent="." instance=ExtResource("3_7c5ia")]
 position = Vector2(789, 527)
+
+[node name="Cereja" parent="." instance=ExtResource("4_4365c")]
+position = Vector2(253, 474)
+
+[node name="Cereja2" parent="." instance=ExtResource("4_4365c")]
+position = Vector2(440, 428)
+
+[node name="Cereja3" parent="." instance=ExtResource("4_4365c")]
+position = Vector2(506, 429)
+
+[node name="Cereja4" parent="." instance=ExtResource("4_4365c")]
+position = Vector2(301, 473)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ContadorCerejas" type="Label" parent="HUD"]
+offset_left = 92.0
+offset_top = 37.0
+offset_right = 119.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+script = ExtResource("5_mgnet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD"]
+position = Vector2(48, 56)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_1tdj7")

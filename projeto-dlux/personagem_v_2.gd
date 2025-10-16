@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 var pulo_duplo = true #Se for true, pode pular uma segunda vez, se não não pode
 var morrendo = false
 var pode_atirar = true
+var cerejas = 0
 @onready var animacao = $AnimatedSprite2D
 @export var fireball_scene: PackedScene
 
