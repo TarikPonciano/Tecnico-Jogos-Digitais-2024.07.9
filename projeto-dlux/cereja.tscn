@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ctkn31di8x23d"]
 
-[ext_resource type="Script" path="res://cereja.gd" id="1_eus5x"]
+[ext_resource type="Script" uid="uid://ceett27tb1khf" path="res://cereja.gd" id="1_eus5x"]
 [ext_resource type="Texture2D" uid="uid://vsk0fnx3mg3q" path="res://Cereja-Spritesheet.png" id="1_vvus8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnuiv"]
