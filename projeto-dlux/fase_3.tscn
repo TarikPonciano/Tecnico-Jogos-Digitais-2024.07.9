@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://dp6eg48fyharf"]
+[gd_scene load_steps=10 format=4 uid="uid://dp6eg48fyharf"]
 
-[ext_resource type="Script" uid="uid://c6p5qy21o4w0g" path="res://fase_3.gd" id="1_8dtid"]
+[ext_resource type="Script" path="res://fase_3.gd" id="1_8dtid"]
 [ext_resource type="Texture2D" uid="uid://drt7ktgf3epoe" path="res://tileset-padrao.png" id="1_nio8l"]
 [ext_resource type="PackedScene" uid="uid://bwef758il4d1g" path="res://personagem_v_2.tscn" id="2_bemxe"]
 [ext_resource type="PackedScene" uid="uid://bgndmktknndea" path="res://inimigo_sapo.tscn" id="3_8dtid"]
 [ext_resource type="PackedScene" uid="uid://ctkn31di8x23d" path="res://cereja.tscn" id="4_7gpko"]
+[ext_resource type="PackedScene" uid="uid://vvsvegt6lc4r" path="res://porta.tscn" id="6_gwjvb"]
+[ext_resource type="PackedScene" uid="uid://doq0ktjd6klvk" path="res://fase_2.tscn" id="7_hebbg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4i80"]
 texture = ExtResource("1_nio8l")
@@ -167,6 +169,7 @@ tile_map_data = PackedByteArray("AAAAACMAAAABAAEAAAABACMAAAABAAEAAAACACMAAAABAAE
 tile_set = SubResource("TileSet_6tnni")
 
 [node name="Personagem V 2" parent="." instance=ExtResource("2_bemxe")]
+unique_name_in_owner = true
 position = Vector2(88, 529)
 
 [node name="Inimigo Sapo" parent="." instance=ExtResource("3_8dtid")]
@@ -198,3 +201,8 @@ position = Vector2(690, 399)
 
 [node name="Cereja7" parent="." instance=ExtResource("4_7gpko")]
 position = Vector2(596, 391)
+
+[node name="Porta" parent="." instance=ExtResource("6_gwjvb")]
+position = Vector2(961, 520)
+proxima_fase = ExtResource("7_hebbg")
+minimo_cerejas = 6
