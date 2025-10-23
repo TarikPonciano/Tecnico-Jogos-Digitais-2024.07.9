@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://doq0ktjd6klvk"]
+[gd_scene load_steps=13 format=4 uid="uid://doq0ktjd6klvk"]
 
 [ext_resource type="Script" path="res://fase_2.gd" id="1_iolds"]
 [ext_resource type="PackedScene" uid="uid://bwef758il4d1g" path="res://personagem_v_2.tscn" id="2_xe686"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://contador_cerejas.gd" id="5_mgnet"]
 [ext_resource type="PackedScene" uid="uid://vvsvegt6lc4r" path="res://porta.tscn" id="8_b8cyv"]
 [ext_resource type="PackedScene" uid="uid://dp6eg48fyharf" path="res://fase_3.tscn" id="9_fysqy"]
+[ext_resource type="PackedScene" uid="uid://di6oy6jceupqh" path="res://background_1.tscn" id="10_fffxl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3efqq"]
 atlas = ExtResource("5_hqqsu")
@@ -73,3 +74,5 @@ position = Vector2(493, 429)
 position = Vector2(1059, 550)
 proxima_fase = ExtResource("9_fysqy")
 minimo_cerejas = 4
+
+[node name="Background 1" parent="." instance=ExtResource("10_fffxl")]
