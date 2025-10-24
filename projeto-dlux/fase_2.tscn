@@ -1,14 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://doq0ktjd6klvk"]
+[gd_scene load_steps=10 format=4 uid="uid://doq0ktjd6klvk"]
 
-[ext_resource type="Script" path="res://fase_2.gd" id="1_iolds"]
+[ext_resource type="Script" uid="uid://dkslc3o8v3ktm" path="res://fase_2.gd" id="1_iolds"]
 [ext_resource type="PackedScene" uid="uid://bwef758il4d1g" path="res://personagem_v_2.tscn" id="2_xe686"]
 [ext_resource type="PackedScene" uid="uid://bgndmktknndea" path="res://inimigo_sapo.tscn" id="3_7c5ia"]
 [ext_resource type="TileSet" uid="uid://knkd3p5g3oh8" path="res://fase_2.tres" id="3_u0tcw"]
 [ext_resource type="PackedScene" uid="uid://ctkn31di8x23d" path="res://cereja.tscn" id="4_4365c"]
 [ext_resource type="Texture2D" uid="uid://vsk0fnx3mg3q" path="res://Cereja-Spritesheet.png" id="5_hqqsu"]
-[ext_resource type="Script" path="res://contador_cerejas.gd" id="5_mgnet"]
-[ext_resource type="PackedScene" uid="uid://vvsvegt6lc4r" path="res://porta.tscn" id="8_b8cyv"]
-[ext_resource type="PackedScene" uid="uid://dp6eg48fyharf" path="res://fase_3.tscn" id="9_fysqy"]
+[ext_resource type="Script" uid="uid://daptfip57mlte" path="res://contador_cerejas.gd" id="5_mgnet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3efqq"]
 atlas = ExtResource("5_hqqsu")
@@ -68,8 +66,3 @@ position = Vector2(437, 428)
 
 [node name="Cereja4" parent="." instance=ExtResource("4_4365c")]
 position = Vector2(493, 429)
-
-[node name="Porta" parent="." instance=ExtResource("8_b8cyv")]
-position = Vector2(1059, 550)
-proxima_fase = ExtResource("9_fysqy")
-minimo_cerejas = 4

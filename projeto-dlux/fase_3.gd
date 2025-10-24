@@ -8,6 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	#if $"Personagem V 2".cerejas >= 5:
-		#get_tree().change_scene_to_file("res://fase_2.tscn")
+	if $"Personagem V 2".cerejas >= 5:
+		get_tree().change_scene_to_file("res://fase_2.tscn")
