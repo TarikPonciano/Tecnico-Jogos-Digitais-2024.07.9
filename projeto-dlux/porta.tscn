@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bboy0651v2j8l"]
+
+[ext_resource type="Script" path="res://porta.gd" id="1_66cpd"]
+[ext_resource type="Texture2D" uid="uid://cwb70npyl0kmh" path="res://closed-door.png" id="1_toyqj"]
+[ext_resource type="Texture2D" uid="uid://cdtt8rnl0vs3u" path="res://door.png" id="2_6f2ln"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8uxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_toyqj")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6f2ln")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qdd3"]
+size = Vector2(29, 68)
+
+[node name="Porta" type="Area2D"]
+z_index = -1
+script = ExtResource("1_66cpd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r8uxe")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_8qdd3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
