@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba4dtkh4jdt5u"]
+
+[ext_resource type="PackedScene" uid="uid://bjgoqnrvf122a" path="res://Personagens/Jogador/Jogador.tscn" id="1_aklyp"]
+[ext_resource type="PackedScene" uid="uid://cymlpbwp2f1r0" path="res://Interface/HUD.tscn" id="2_jew0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx5g1"]
+size = Vector2(1154, 39)
+
+[node name="Fase Teste" type="Node2D"]
+
+[node name="Chão" type="StaticBody2D" parent="."]
+position = Vector2(1, 613)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão"]
+position = Vector2(576, 19.5)
+shape = SubResource("RectangleShape2D_lx5g1")
+
+[node name="Panel" type="Panel" parent="Chão"]
+offset_right = 1153.0
+offset_bottom = 40.0
+
+[node name="Jogador" parent="." instance=ExtResource("1_aklyp")]
+position = Vector2(81, 493)
+
+[node name="Hud" parent="." instance=ExtResource("2_jew0q")]

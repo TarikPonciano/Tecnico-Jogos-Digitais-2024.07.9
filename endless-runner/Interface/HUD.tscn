@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://cymlpbwp2f1r0"]
+
+[ext_resource type="Texture2D" uid="uid://2srldgnhcgk6" path="res://Interface/flat-light/flatLight22.png" id="1_qowjp"]
+[ext_resource type="Texture2D" uid="uid://ck24x4o1btf1w" path="res://Interface/flat-dark/flatDark23.png" id="2_exb1t"]
+[ext_resource type="Texture2D" uid="uid://ddnh4cgusjwnt" path="res://Interface/flat-light/flatLight23.png" id="3_cgs40"]
+[ext_resource type="Texture2D" uid="uid://bqom4yotx6llo" path="res://Interface/flat-dark/flatDark24.png" id="4_nusht"]
+[ext_resource type="Texture2D" uid="uid://cbhep4yehedtk" path="res://Interface/flat-light/flatLight43.png" id="5_hgrsa"]
+[ext_resource type="Texture2D" uid="uid://ba88deapulpqi" path="res://Interface/flat-dark/flatDark44.png" id="6_apkd1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_leal7"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s78ss"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sot7f"]
+radius = 40.0
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="SetaEsquerda" type="TouchScreenButton" parent="."]
+position = Vector2(73, 508)
+texture_normal = ExtResource("1_qowjp")
+texture_pressed = ExtResource("2_exb1t")
+shape = SubResource("CircleShape2D_leal7")
+action = "ui_left"
+
+[node name="SetaDireita" type="TouchScreenButton" parent="."]
+position = Vector2(221, 508)
+texture_normal = ExtResource("3_cgs40")
+texture_pressed = ExtResource("4_nusht")
+shape = SubResource("CircleShape2D_s78ss")
+action = "ui_right"
+
+[node name="Pular" type="TouchScreenButton" parent="."]
+position = Vector2(919, 399)
+texture_normal = ExtResource("5_hgrsa")
+texture_pressed = ExtResource("6_apkd1")
+shape = SubResource("CircleShape2D_sot7f")
+action = "ui_accept"
