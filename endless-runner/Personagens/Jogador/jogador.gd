@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 300.0 
 const JUMP_VELOCITY = -400.0
 var pulo_duplo = false
 
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		
 	#Controle de velocidade com base no input do jogador
 	var direction = Input.get_axis("ui_left", "ui_right")
-	velocity.x = 300 + (direction*200)
+	velocity.x = (300 + (direction*200)) * (Global.dificuldade/2)
 	
 	#Lógica para matar o jogador
 	if position.y >= 700:
