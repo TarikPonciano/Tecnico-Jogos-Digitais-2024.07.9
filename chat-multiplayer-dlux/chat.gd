@@ -57,11 +57,26 @@ func novo_usuario(id: int):
 	rpc("atualizar_chat", chat_log)
 	
 	
+func enviar_mensagem():
+	var mensagem = str("\n",$Panel/CampoUsuario.text, ": ", $Panel/CampoMensagem.text)
+	
+	if multiplayer.get_unique_id() == 1:
+		receber_mensagem(mensagem)
+	else:
+		rpc_id(1, "receber_mensagem", mensagem )
+
+
 @rpc("any_peer")
 func atualizar_chat(mensagens):
 	$Panel/RichTextLabel.text = mensagens
 	
+@rpc("any_peer")
+func receber_mensagem(mensagem):
+	chat_log += mensagem
+	atualizar_chat(chat_log)
+	rpc("atualizar_chat", chat_log)
 	
+
 
 	
 	

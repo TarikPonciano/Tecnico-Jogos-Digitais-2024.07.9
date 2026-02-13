@@ -16,7 +16,16 @@ layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 648.0
 
+[node name="CampoMensagem" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 507.0
+offset_right = 953.0
+offset_bottom = 544.0
+placeholder_text = "Mensagem"
+
 [node name="Label" type="Label" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = 20.0
 offset_top = 515.0
@@ -66,5 +75,22 @@ offset_right = 1109.0
 offset_bottom = 486.0
 text = "CHAT:"
 
+[node name="CampoUsuario" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 511.0
+offset_right = 208.0
+offset_bottom = 544.0
+placeholder_text = "Usuario"
+
+[node name="Button3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 504.0
+offset_right = 1089.0
+offset_bottom = 546.0
+text = "ENVIAR"
+
 [connection signal="pressed" from="Panel/Button" to="." method="start_server"]
 [connection signal="pressed" from="Panel/Button2" to="." method="connect_server"]
+[connection signal="pressed" from="Panel/Button3" to="." method="enviar_mensagem"]
