@@ -6,6 +6,8 @@ var peer = null
 var endereco_ip = null
 var porta_cliente = null
 
+var chat_log = "CHAT:"
+
 func connect_server():
 	peer = ENetMultiplayerPeer.new()
 	
@@ -44,6 +46,20 @@ func start_server():
 	
 	print("SERVIDOR CRIADO COM SUCESSO")
 	$Panel/Label.text = "Servidor Operando!"
+	
+	multiplayer.peer_connected.connect(novo_usuario)
+	
+func novo_usuario(id: int):
+	
+	chat_log += str("\n Jogador ", id, " se conectou!")
+	
+	atualizar_chat(chat_log)
+	rpc("atualizar_chat", chat_log)
+	
+	
+@rpc("any_peer")
+func atualizar_chat(mensagens):
+	$Panel/RichTextLabel.text = mensagens
 	
 	
 
