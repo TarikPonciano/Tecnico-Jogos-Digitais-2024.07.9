@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv5rguafvg4r3"]
+
+[ext_resource type="Script" uid="uid://b3i3ig4fdrwb5" path="res://chat.gd" id="1_dg5i7"]
+
+[node name="Chat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dg5i7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 88.0
+offset_right = 590.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 32
+text = "TESTE"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 230.0
+offset_right = 735.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 32
+text = "CRIAR SERVIDOR"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 455.0
+offset_right = 690.0
+offset_bottom = 508.0
+theme_override_font_sizes/font_size = 32
+text = "Conectar"
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 399.0
+offset_right = 561.0
+offset_bottom = 430.0
+placeholder_text = "ENDERECO IP"
+
+[node name="LineEdit2" type="LineEdit" parent="Panel"]
+offset_left = 673.0
+offset_top = 399.0
+offset_right = 866.0
+offset_bottom = 430.0
+placeholder_text = "PORTA"
+
+[connection signal="pressed" from="Panel/Button" to="." method="start_server"]
+[connection signal="pressed" from="Panel/Button2" to="." method="connect_server"]
