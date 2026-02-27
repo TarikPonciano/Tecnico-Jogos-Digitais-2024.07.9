@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bcih8piqgybw4"]
+
+[ext_resource type="Script" uid="uid://bec1wb1fg6bfa" path="res://game.gd" id="1_80nbo"]
+
+[node name="Game" type="Node2D" unique_id=916936550]
+script = ExtResource("1_80nbo")
+
+[node name="HUDNetwork" type="Panel" parent="." unique_id=1376139288]
+offset_right = 342.0
+offset_bottom = 92.0
+
+[node name="BotaoCriar" type="Button" parent="HUDNetwork" unique_id=1439463106]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 59.0
+offset_bottom = 37.0
+text = "CRIAR"
+
+[node name="BotaoConectar" type="Button" parent="HUDNetwork" unique_id=1511237392]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 47.0
+offset_right = 336.0
+offset_bottom = 78.0
+text = "CONECTAR"
+
+[node name="CampoIp" type="LineEdit" parent="HUDNetwork" unique_id=486071446]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 48.0
+offset_right = 156.0
+offset_bottom = 79.0
+placeholder_text = "Digite o IP"
+
+[node name="CampoPorta" type="LineEdit" parent="HUDNetwork" unique_id=1225780643]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 47.0
+offset_right = 234.5
+offset_bottom = 78.0
+placeholder_text = "Porta"
+
+[connection signal="pressed" from="HUDNetwork/BotaoCriar" to="." method="_on_botao_criar_pressed"]
+[connection signal="pressed" from="HUDNetwork/BotaoConectar" to="." method="_on_botao_conectar_pressed"]
